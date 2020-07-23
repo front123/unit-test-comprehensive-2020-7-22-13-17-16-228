@@ -8,7 +8,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AnswerGeneratorTest {
 
-    private GuessNumberGame guessNumberGame = new GuessNumberGame();
+    private final GuessNumberGame guessNumberGame = new GuessNumberGame();
+
     @Test
     void should_return_true_when_is_valid_answer_numbers_given_random_answer_numbers() {
         //given
