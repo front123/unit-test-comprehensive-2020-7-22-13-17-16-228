@@ -74,19 +74,19 @@ public class GameTest {
     answer:[int]
     guessNumbers:[int]
     输出:
-    0A4B
+    2A2B
      */
     @Test
-    void should_return_0A4B_when_guess_given_answer_1234_and_guess_numbers_4321() {
+    void should_return_2A2B_when_guess_given_answer_1234_and_guess_numbers_1243() {
         //given
         GuessNumber guessNumber = new GuessNumber();
         int[] answer = {1,2,3,4};
-        int[] guessNumbers = {4,3,2,1};
+        int[] guessNumbers = {1,2,4,3};
 
         //when
         String result = guessNumber.guess(answer, guessNumbers);
 
         //then
-        assertEquals("0A4B", result);
+        assertEquals("2A2B", result);
     }
 }
