@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-public class AnswerGenerator {
+public class AnswerGenerator implements INumberGenerator {
 
     public int[] generate() {
         List<Integer> numbersList = new LinkedList<>();
