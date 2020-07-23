@@ -3,6 +3,8 @@ package game;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class GameTest {
 
@@ -16,12 +18,13 @@ public class GameTest {
     @Test
     void should_return_4A0B_when_guess_given_answer_1234_and_guess_numbers_1234() {
         //given
-        GuessNumberGame guessNumberGame = new GuessNumberGame();
-        int[] answer = {1,2,3,4};
+        INumberGenerator answerGenerator = mock(INumberGenerator.class);
+        when(answerGenerator.generate()).thenReturn(new int[]{1,2,3,4});
+        GuessNumberGame guessNumberGame = new GuessNumberGame(answerGenerator);
         int[] guessNumbers = {1,2,3,4};
 
         //when
-        String result = guessNumberGame.guess(answer, guessNumbers);
+        String result = guessNumberGame.guess(guessNumberGame.getAnswer(), guessNumbers);
 
         //then
         assertEquals("4A0B", result);
