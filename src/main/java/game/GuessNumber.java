@@ -27,7 +27,7 @@ public class GuessNumber {
     public boolean isValidGuessNumbers(int[] guessNumbers) {
 
         for (int number: guessNumbers) {
-            if(number>9) return false;
+            if(number>9 || number<0) return false;
         }
         return guessNumbers.length == 4;
     }
