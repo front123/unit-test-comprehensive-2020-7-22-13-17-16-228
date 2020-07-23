@@ -24,4 +24,7 @@ public class GuessNumber {
         return countNumberInAnswerAndPositionRight +"A"+countNumberInAnswerButWrongPosition+"B";
     }
 
+    public boolean isValidGuessNumbers(int[] guessNumbers) {
+        return false;
+    }
 }

@@ -3,6 +3,7 @@ package game;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GameTest {
 
@@ -109,5 +110,22 @@ public class GameTest {
 
         //then
         assertEquals("1A1B", result);
+    }
+
+    /*
+    输入合法性测试
+    输入 [1,2,3,4]
+    输出 true
+     */
+
+    @Test
+    void should_return_true_when_check_is_valid_guess_numbers_given_1234() {
+        //given
+        GuessNumber guessNumber = new GuessNumber();
+        int[] guessNumbers = {1,2,3,4};
+        //when
+        boolean result = guessNumber.isValidGuessNumbers(guessNumbers);
+        //then
+        assertTrue(result);
     }
 }
