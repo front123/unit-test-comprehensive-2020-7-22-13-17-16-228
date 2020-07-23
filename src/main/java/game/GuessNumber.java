@@ -1,12 +1,13 @@
 package game;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class GuessNumber {
 
     public String guess(int[] answer, int[] guessNumbers) {
-//        boolean isAllRight = true;
+
+        return createFeedback(answer, guessNumbers);
+    }
+
+    public String createFeedback(int[] answer, int[] guessNumbers){
         int countNumberInAnswerAndPositionRight = 0;
         int countNumberInAnswerButWrongPosition = 0;
         for (int i = 0; i < guessNumbers.length; i++) {
@@ -22,4 +23,5 @@ public class GuessNumber {
 
         return countNumberInAnswerAndPositionRight +"A"+countNumberInAnswerButWrongPosition+"B";
     }
+
 }
