@@ -2,6 +2,13 @@ package game;
 
 public class GuessNumberGame {
 
+    private int[] answer;
+    public GuessNumberGame() {
+    }
+    public GuessNumberGame(INumberGenerator numberGenerator){
+        this.answer = numberGenerator.generate();
+    }
+
     public String guess(int[] answer, int[] guessNumbers) {
 
         return createFeedback(answer, guessNumbers);
@@ -37,5 +44,9 @@ public class GuessNumberGame {
             }
         }
         return true;
+    }
+
+    public int[] getAnswer() {
+        return answer;
     }
 }
