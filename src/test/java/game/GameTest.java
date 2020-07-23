@@ -1,13 +1,22 @@
 package game;
 
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class GameTest {
+    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
+    @Before
+    public void setup() {
+        System.setOut(new PrintStream(outContent));
+    }
     /*
     输入：
     answer:[int]
@@ -173,5 +182,20 @@ public class GameTest {
         boolean result = guessNumberGame.isValidNumbers(guessNumbers);
         //then
         assertFalse(result);
+    }
+
+    private String systemOut() {
+        return outContent.toString();
+    }
+
+    @Test
+    void should_output_wrong_message_when_check_is_valid_numbers_given_1232() {
+        //given
+        GuessNumberGame guessNumberGame = new GuessNumberGame();
+        int[] guessNumbers = {1,2,3,2};
+        //when
+        guessNumberGame.isValidNumbers(guessNumbers);
+        //then
+        assertEquals(systemOut(),"Wrong Input，Input again");
     }
 }
