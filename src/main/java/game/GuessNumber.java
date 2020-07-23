@@ -25,10 +25,17 @@ public class GuessNumber {
     }
 
     public boolean isValidGuessNumbers(int[] guessNumbers) {
-
+        if (guessNumbers.length != 4) return false;
         for (int number: guessNumbers) {
             if(number>9 || number<0) return false;
         }
-        return guessNumbers.length == 4;
+        for (int i=0; i<guessNumbers.length; i++){
+            for(int j=0; j<guessNumbers.length; j++){
+                if(guessNumbers[i] == guessNumbers[j] && i!=j){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
