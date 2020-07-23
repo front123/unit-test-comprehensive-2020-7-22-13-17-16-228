@@ -47,4 +47,25 @@ public class GameTest {
         //then
         assertEquals("0A0B", result);
     }
+
+    /*
+    输入：
+    answer:[int]
+    guessNumbers:[int]
+    输出:
+    2A0B
+     */
+    @Test
+    void should_return_2A0B_when_guess_given_answer_1234_and_guess_numbers_1256() {
+        //given
+        GuessNumber guessNumber = new GuessNumber();
+        int[] answer = {1,2,3,4};
+        int[] guessNumbers = {1,2,5,6};
+
+        //when
+        String result = guessNumber.guess(answer, guessNumbers);
+
+        //then
+        assertEquals("2A0B", result);
+    }
 }
