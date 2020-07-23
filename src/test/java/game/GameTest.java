@@ -2,8 +2,7 @@ package game;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class GameTest {
 
@@ -113,7 +112,7 @@ public class GameTest {
     }
 
     /*
-    输入合法性测试
+    input number valid
     输入 [1,2,3,4]
     输出 true
      */
@@ -127,5 +126,16 @@ public class GameTest {
         boolean result = guessNumber.isValidGuessNumbers(guessNumbers);
         //then
         assertTrue(result);
+    }
+
+    @Test
+    void should_return_false_when_check_is_valid_guess_numbers_given_12341() {
+        //given
+        GuessNumber guessNumber = new GuessNumber();
+        int[] guessNumbers = {1,2,3,4,1};
+        //when
+        boolean result = guessNumber.isValidGuessNumbers(guessNumbers);
+        //then
+        assertFalse(result);
     }
 }
