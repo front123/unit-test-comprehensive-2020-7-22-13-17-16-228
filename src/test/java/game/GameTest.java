@@ -160,4 +160,15 @@ public class GameTest {
         //then
         assertFalse(result);
     }
+
+    @Test
+    void should_return_false_when_check_is_valid_guess_numbers_given_1232() {
+        //given
+        GuessNumber guessNumber = new GuessNumber();
+        int[] guessNumbers = {1,2,3,2};
+        //when
+        boolean result = guessNumber.isValidGuessNumbers(guessNumbers);
+        //then
+        assertFalse(result);
+    }
 }
