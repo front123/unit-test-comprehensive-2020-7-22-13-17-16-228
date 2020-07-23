@@ -16,12 +16,12 @@ public class GameTest {
     @Test
     void should_return_4A0B_when_guess_given_answer_1234_and_guess_numbers_1234() {
         //given
-        GuessNumber guessNumber = new GuessNumber();
+        GuessNumberGame guessNumberGame = new GuessNumberGame();
         int[] answer = {1,2,3,4};
         int[] guessNumbers = {1,2,3,4};
 
         //when
-        String result = guessNumber.guess(answer, guessNumbers);
+        String result = guessNumberGame.guess(answer, guessNumbers);
 
         //then
         assertEquals("4A0B", result);
@@ -37,12 +37,12 @@ public class GameTest {
     @Test
     void should_return_0A0B_when_guess_given_answer_1234_and_guess_numbers_5678() {
         //given
-        GuessNumber guessNumber = new GuessNumber();
+        GuessNumberGame guessNumberGame = new GuessNumberGame();
         int[] answer = {1,2,3,4};
         int[] guessNumbers = {5,6,7,8};
 
         //when
-        String result = guessNumber.guess(answer, guessNumbers);
+        String result = guessNumberGame.guess(answer, guessNumbers);
 
         //then
         assertEquals("0A0B", result);
@@ -58,12 +58,12 @@ public class GameTest {
     @Test
     void should_return_2A0B_when_guess_given_answer_1234_and_guess_numbers_1256() {
         //given
-        GuessNumber guessNumber = new GuessNumber();
+        GuessNumberGame guessNumberGame = new GuessNumberGame();
         int[] answer = {1,2,3,4};
         int[] guessNumbers = {1,2,5,6};
 
         //when
-        String result = guessNumber.guess(answer, guessNumbers);
+        String result = guessNumberGame.guess(answer, guessNumbers);
 
         //then
         assertEquals("2A0B", result);
@@ -79,12 +79,12 @@ public class GameTest {
     @Test
     void should_return_2A2B_when_guess_given_answer_1234_and_guess_numbers_1243() {
         //given
-        GuessNumber guessNumber = new GuessNumber();
+        GuessNumberGame guessNumberGame = new GuessNumberGame();
         int[] answer = {1,2,3,4};
         int[] guessNumbers = {1,2,4,3};
 
         //when
-        String result = guessNumber.guess(answer, guessNumbers);
+        String result = guessNumberGame.guess(answer, guessNumbers);
 
         //then
         assertEquals("2A2B", result);
@@ -100,12 +100,12 @@ public class GameTest {
     @Test
     void should_return_1A1B_when_guess_given_answer_1234_and_guess_numbers_1562() {
         //given
-        GuessNumber guessNumber = new GuessNumber();
+        GuessNumberGame guessNumberGame = new GuessNumberGame();
         int[] answer = {1,2,3,4};
         int[] guessNumbers = {1,5,6,2};
 
         //when
-        String result = guessNumber.guess(answer, guessNumbers);
+        String result = guessNumberGame.guess(answer, guessNumbers);
 
         //then
         assertEquals("1A1B", result);
@@ -120,10 +120,10 @@ public class GameTest {
     @Test
     void should_return_true_when_check_is_valid_guess_numbers_given_1234() {
         //given
-        GuessNumber guessNumber = new GuessNumber();
+        GuessNumberGame guessNumberGame = new GuessNumberGame();
         int[] guessNumbers = {1,2,3,4};
         //when
-        boolean result = guessNumber.isValidGuessNumbers(guessNumbers);
+        boolean result = guessNumberGame.isValidNumbers(guessNumbers);
         //then
         assertTrue(result);
     }
@@ -131,10 +131,10 @@ public class GameTest {
     @Test
     void should_return_false_when_check_is_valid_guess_numbers_given_12341() {
         //given
-        GuessNumber guessNumber = new GuessNumber();
+        GuessNumberGame guessNumberGame = new GuessNumberGame();
         int[] guessNumbers = {1,2,3,4,1};
         //when
-        boolean result = guessNumber.isValidGuessNumbers(guessNumbers);
+        boolean result = guessNumberGame.isValidNumbers(guessNumbers);
         //then
         assertFalse(result);
     }
@@ -142,10 +142,10 @@ public class GameTest {
     @Test
     void should_return_false_when_check_is_valid_guess_numbers_given_123_10() {
         //given
-        GuessNumber guessNumber = new GuessNumber();
+        GuessNumberGame guessNumberGame = new GuessNumberGame();
         int[] guessNumbers = {1,2,3,10};
         //when
-        boolean result = guessNumber.isValidGuessNumbers(guessNumbers);
+        boolean result = guessNumberGame.isValidNumbers(guessNumbers);
         //then
         assertFalse(result);
     }
@@ -153,10 +153,10 @@ public class GameTest {
     @Test
     void should_return_false_when_check_is_valid_guess_numbers_given_123_with_a_negative_1() {
         //given
-        GuessNumber guessNumber = new GuessNumber();
+        GuessNumberGame guessNumberGame = new GuessNumberGame();
         int[] guessNumbers = {1,2,3,-1};
         //when
-        boolean result = guessNumber.isValidGuessNumbers(guessNumbers);
+        boolean result = guessNumberGame.isValidNumbers(guessNumbers);
         //then
         assertFalse(result);
     }
@@ -164,10 +164,10 @@ public class GameTest {
     @Test
     void should_return_false_when_check_is_valid_guess_numbers_given_1232() {
         //given
-        GuessNumber guessNumber = new GuessNumber();
+        GuessNumberGame guessNumberGame = new GuessNumberGame();
         int[] guessNumbers = {1,2,3,2};
         //when
-        boolean result = guessNumber.isValidGuessNumbers(guessNumbers);
+        boolean result = guessNumberGame.isValidNumbers(guessNumbers);
         //then
         assertFalse(result);
     }

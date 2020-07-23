@@ -1,6 +1,6 @@
 package game;
 
-public class GuessNumber {
+public class GuessNumberGame {
 
     public String guess(int[] answer, int[] guessNumbers) {
 
@@ -24,7 +24,7 @@ public class GuessNumber {
         return countNumberInAnswerAndPositionRight +"A"+countNumberInAnswerButWrongPosition+"B";
     }
 
-    public boolean isValidGuessNumbers(int[] guessNumbers) {
+    public boolean isValidNumbers(int[] guessNumbers) {
         if (guessNumbers==null || guessNumbers.length != 4) return false;
         for (int number: guessNumbers) {
             if(number>9 || number<0) return false;
