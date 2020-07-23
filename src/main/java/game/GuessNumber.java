@@ -25,6 +25,7 @@ public class GuessNumber {
     }
 
     public boolean isValidGuessNumbers(int[] guessNumbers) {
-        return true;
+
+        return guessNumbers.length == 4;
     }
 }
