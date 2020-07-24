@@ -11,7 +11,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class GameTest {
-    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before
     public void setup() {
@@ -184,18 +184,16 @@ public class GameTest {
         assertFalse(result);
     }
 
-    private String systemOut() {
-        return outContent.toString();
-    }
 
     @Test
-    void should_output_wrong_message_when_check_is_valid_numbers_given_1232() {
+    void should_output_wrong_message_when_guess_given_1232() {
         //given
         GuessNumberGame guessNumberGame = new GuessNumberGame();
         int[] guessNumbers = {1,2,3,2};
+        int[] answer = {1,2,3,4};
         //when
-        guessNumberGame.isValidNumbers(guessNumbers);
+        String result = guessNumberGame.guess(answer,guessNumbers);
         //then
-        assertEquals(systemOut(),"Wrong Input，Input again");
+        assertEquals("Wrong Input，Input again", result);
     }
 }
