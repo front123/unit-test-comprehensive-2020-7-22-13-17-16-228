@@ -10,7 +10,9 @@ public class GuessNumberGame {
     }
 
     public String guess(int[] answer, int[] guessNumbers) {
-
+        if (!isValidNumbers(guessNumbers)){
+            return "Wrong Input，Input again";
+        }
         return createFeedback(answer, guessNumbers);
     }
 
@@ -32,9 +34,13 @@ public class GuessNumberGame {
     }
 
     public boolean isValidNumbers(int[] guessNumbers) {
-        if (guessNumbers==null || guessNumbers.length != 4) return false;
+        if (guessNumbers==null || guessNumbers.length != 4) {
+            return false;
+        }
         for (int number: guessNumbers) {
-            if(number>9 || number<0) return false;
+            if(number>9 || number<0) {
+                return false;
+            }
         }
         for (int i=0; i<guessNumbers.length; i++){
             for(int j=0; j<guessNumbers.length; j++){
