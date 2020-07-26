@@ -1,10 +1,8 @@
 package game;
 
-import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
@@ -13,10 +11,6 @@ import static org.mockito.Mockito.when;
 public class GameTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
-    @Before
-    public void setup() {
-        System.setOut(new PrintStream(outContent));
-    }
     /*
     输入：
     answer:[int]
@@ -27,6 +21,7 @@ public class GameTest {
     @Test
     void should_return_4A0B_when_guess_given_answer_1234_and_guess_numbers_1234() {
         //given
+
         INumberGenerator answerGenerator = mock(INumberGenerator.class);
         when(answerGenerator.generate()).thenReturn(new int[]{1,2,3,4});
         GuessNumberGame guessNumberGame = new GuessNumberGame(answerGenerator);
@@ -192,7 +187,7 @@ public class GameTest {
         int[] guessNumbers = {1,2,3,2};
         int[] answer = {1,2,3,4};
         //when
-        String result = guessNumberGame.guess(answer,guessNumbers);
+        String result = guessNumberGame.play(answer,guessNumbers);
         //then
         assertEquals("Wrong Input，Input again", result);
     }
