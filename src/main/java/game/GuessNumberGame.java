@@ -8,21 +8,23 @@ public class GuessNumberGame {
     public GuessNumberGame(INumberGenerator numberGenerator){
         this.answer = numberGenerator.generate();
     }
-
-    public String guess(int[] answer, int[] guessNumbers) {
+// todo rename
+    public String play(int[] answer, int[] guessNumbers) {
         if (!isValidNumbers(guessNumbers)){
             return "Wrong Input，Input again";
         }
-        return createFeedback(answer, guessNumbers);
+        return guess(answer, guessNumbers);
     }
-
-    public String createFeedback(int[] answer, int[] guessNumbers){
-        int countNumberInAnswerAndPositionRight = 0;
+// todo rename Right to correct
+    public String guess(int[] answer, int[] guessNumbers){
+        int countNumberInAnswerAndPositionCorrect = 0;
         int countNumberInAnswerButWrongPosition = 0;
         for (int i = 0; i < guessNumbers.length; i++) {
             for (int j=0; j < answer.length; j++){
                 if (guessNumbers[i] == answer[j] && i==j){
-                    countNumberInAnswerAndPositionRight ++;
+                    countNumberInAnswerAndPositionCorrect ++;
+                    // todo continue
+                    continue;
                 }
                 if(guessNumbers[i] == answer[j] && i!=j){
                     countNumberInAnswerButWrongPosition++;
@@ -30,7 +32,7 @@ public class GuessNumberGame {
             }
         }
 
-        return countNumberInAnswerAndPositionRight +"A"+countNumberInAnswerButWrongPosition+"B";
+        return countNumberInAnswerAndPositionCorrect +"A"+countNumberInAnswerButWrongPosition+"B";
     }
 
     public boolean isValidNumbers(int[] guessNumbers) {
