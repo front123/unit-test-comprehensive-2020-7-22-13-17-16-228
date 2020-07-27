@@ -10,14 +10,14 @@ public class GuessNumberGame {
         this.answer = numberGenerator.generate();
     }
 
-    public String play(int[] answer, int[] guessNumbers) {
+    public String play(int[] guessNumbers) {
         if (!inputValidator.isValidNumbers(guessNumbers)){
             return "Wrong Input，Input again";
         }
-        return guess(answer, guessNumbers);
+        return guess(guessNumbers);
     }
 
-    public String guess(int[] answer, int[] guessNumbers){
+    public String guess(int[] guessNumbers){
         int countNumberInAnswerAndPositionCorrect = 0;
         int countNumberInAnswerButWrongPosition = 0;
         for (int i = 0; i < guessNumbers.length; i++) {

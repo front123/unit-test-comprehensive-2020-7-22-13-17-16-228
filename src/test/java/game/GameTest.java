@@ -20,7 +20,7 @@ public class GameTest {
         int[] guessNumbers = {1,2,3,4};
 
         //when
-        String result = guessNumberGame.guess(guessNumberGame.getAnswer(), guessNumbers);
+        String result = guessNumberGame.guess(guessNumbers);
 
         //then
         assertEquals("4A0B", result);
@@ -35,7 +35,7 @@ public class GameTest {
         int[] guessNumbers = {5,6,7,8};
 
         //when
-        String result = guessNumberGame.guess(answer, guessNumbers);
+        String result = guessNumberGame.guess(guessNumbers);
 
         //then
         assertEquals("0A0B", result);
@@ -50,7 +50,7 @@ public class GameTest {
         int[] guessNumbers = {1,2,5,6};
 
         //when
-        String result = guessNumberGame.guess(answer, guessNumbers);
+        String result = guessNumberGame.guess(guessNumbers);
 
         //then
         assertEquals("2A0B", result);
@@ -65,7 +65,7 @@ public class GameTest {
         int[] guessNumbers = {1,2,4,3};
 
         //when
-        String result = guessNumberGame.guess(answer, guessNumbers);
+        String result = guessNumberGame.guess(guessNumbers);
 
         //then
         assertEquals("2A2B", result);
@@ -80,7 +80,7 @@ public class GameTest {
         int[] guessNumbers = {1,5,6,2};
 
         //when
-        String result = guessNumberGame.guess(answer, guessNumbers);
+        String result = guessNumberGame.guess(guessNumbers);
 
         //then
         assertEquals("1A1B", result);
@@ -94,7 +94,7 @@ public class GameTest {
         GuessNumberGame guessNumberGame = new GuessNumberGame(answerGenerator);
         int[] guessNumbers = {1,2,3,2};
         //when
-        String result = guessNumberGame.play(answer,guessNumbers);
+        String result = guessNumberGame.play(guessNumbers);
         //then
         assertEquals("Wrong Input，Input again", result);
     }
