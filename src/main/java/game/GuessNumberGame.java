@@ -3,6 +3,7 @@ package game;
 public class GuessNumberGame {
 
     private int[] answer;
+    private final InputValidator inputValidator = new InputValidator();
     public GuessNumberGame() {
     }
     public GuessNumberGame(INumberGenerator numberGenerator){
@@ -10,7 +11,7 @@ public class GuessNumberGame {
     }
 
     public String play(int[] answer, int[] guessNumbers) {
-        if (!isValidNumbers(guessNumbers)){
+        if (!inputValidator.isValidNumbers(guessNumbers)){
             return "Wrong Input，Input again";
         }
         return guess(answer, guessNumbers);
@@ -34,24 +35,6 @@ public class GuessNumberGame {
         return String.format("%dA%dB", countNumberInAnswerAndPositionCorrect, countNumberInAnswerButWrongPosition);
     }
 
-    public boolean isValidNumbers(int[] guessNumbers) {
-        if (guessNumbers==null || guessNumbers.length != 4) {
-            return false;
-        }
-        for (int number: guessNumbers) {
-            if(number>9 || number<0) {
-                return false;
-            }
-        }
-        for (int i=0; i<guessNumbers.length; i++){
-            for(int j=0; j<guessNumbers.length; j++){
-                if(guessNumbers[i] == guessNumbers[j] && i!=j){
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
 
     public int[] getAnswer() {
         return answer;
