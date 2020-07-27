@@ -84,62 +84,6 @@ public class GameTest {
     }
 
     @Test
-    void should_return_true_when_check_is_valid_guess_numbers_given_1234() {
-        //given
-        GuessNumberGame guessNumberGame = new GuessNumberGame();
-        int[] guessNumbers = {1,2,3,4};
-        //when
-        boolean result = guessNumberGame.isValidNumbers(guessNumbers);
-        //then
-        assertTrue(result);
-    }
-
-    @Test
-    void should_return_false_when_check_is_valid_guess_numbers_given_12341() {
-        //given
-        GuessNumberGame guessNumberGame = new GuessNumberGame();
-        int[] guessNumbers = {1,2,3,4,1};
-        //when
-        boolean result = guessNumberGame.isValidNumbers(guessNumbers);
-        //then
-        assertFalse(result);
-    }
-
-    @Test
-    void should_return_false_when_check_is_valid_guess_numbers_given_123_10() {
-        //given
-        GuessNumberGame guessNumberGame = new GuessNumberGame();
-        int[] guessNumbers = {1,2,3,10};
-        //when
-        boolean result = guessNumberGame.isValidNumbers(guessNumbers);
-        //then
-        assertFalse(result);
-    }
-
-    @Test
-    void should_return_false_when_check_is_valid_guess_numbers_given_123_with_a_negative_1() {
-        //given
-        GuessNumberGame guessNumberGame = new GuessNumberGame();
-        int[] guessNumbers = {1,2,3,-1};
-        //when
-        boolean result = guessNumberGame.isValidNumbers(guessNumbers);
-        //then
-        assertFalse(result);
-    }
-
-    @Test
-    void should_return_false_when_check_is_valid_guess_numbers_given_1232() {
-        //given
-        GuessNumberGame guessNumberGame = new GuessNumberGame();
-        int[] guessNumbers = {1,2,3,2};
-        //when
-        boolean result = guessNumberGame.isValidNumbers(guessNumbers);
-        //then
-        assertFalse(result);
-    }
-
-
-    @Test
     void should_output_wrong_message_when_guess_given_1232() {
         //given
         GuessNumberGame guessNumberGame = new GuessNumberGame();
