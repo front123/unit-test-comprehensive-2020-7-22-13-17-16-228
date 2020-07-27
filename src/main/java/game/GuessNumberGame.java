@@ -31,7 +31,7 @@ public class GuessNumberGame {
             }
         }
 
-        return countNumberInAnswerAndPositionCorrect +"A"+countNumberInAnswerButWrongPosition+"B";
+        return String.format("%dA%dB", countNumberInAnswerAndPositionCorrect, countNumberInAnswerButWrongPosition);
     }
 
     public boolean isValidNumbers(int[] guessNumbers) {
