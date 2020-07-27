@@ -84,16 +84,4 @@ public class GameTest {
         assertEquals("1A1B", result);
     }
 
-    @Test
-    void should_output_wrong_message_when_guess_given_1232() {
-        //given
-        int[] answer = {1, 2, 3, 4};
-        when(answerGenerator.generate()).thenReturn(answer);
-        GuessNumberGame guessNumberGame = new GuessNumberGame(answerGenerator);
-        int[] guessNumbers = {1, 2, 3, 2};
-        //when
-        String result = guessNumberGame.play(guessNumbers);
-        //then
-        assertEquals("Wrong Input，Input again", result);
-    }
 }
