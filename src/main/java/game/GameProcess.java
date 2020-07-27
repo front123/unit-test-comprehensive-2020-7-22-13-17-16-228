@@ -23,6 +23,9 @@ public class GameProcess {
             return "Wrong Input，Input again";
         }
         timesLimiter.increase();
+        if (timesLimiter.isTimesOut()){
+            throw new TimesOutException();
+        }
         String xAxB = guessNumberGame.guess(guessNumbers);
         if (xAxB.equals("4A0B")){
             return "Win";
