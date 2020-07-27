@@ -3,20 +3,12 @@ package game;
 public class GuessNumberGame {
 
     private int[] answer;
-    private final InputValidator inputValidator = new InputValidator();
 
     public GuessNumberGame() {
     }
 
     public GuessNumberGame(INumberGenerator numberGenerator) {
         this.answer = numberGenerator.generate();
-    }
-
-    public String play(int[] guessNumbers) {
-        if (!inputValidator.isValidNumbers(guessNumbers)) {
-            return "Wrong Input，Input again";
-        }
-        return guess(guessNumbers);
     }
 
     public String guess(int[] guessNumbers) {
