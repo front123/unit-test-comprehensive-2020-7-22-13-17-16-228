@@ -1,25 +1,18 @@
 package game;
 
-import java.util.LinkedList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 public class AnswerGenerator implements INumberGenerator {
-
+    private final Integer[] numbers = {0,1,2,3,4,5,6,7,8,9};
+    private final List<Integer> randomNumbersList = Arrays.asList(numbers);
     public int[] generate() {
-        List<Integer> numbersList = new LinkedList<>();
         int[] answerNumbers = new int[4];
-        int index = 0;
-        while (numbersList.size()<4){
-            Random rd = new Random();
-            int number = rd.nextInt(10);
-            if(!numbersList.contains(number)){
-                numbersList.add(number);
-                answerNumbers[index] = number;
-                index++;
-            }
+        Collections.shuffle(randomNumbersList);
+        for (int i=0; i<4; i++){
+            answerNumbers[i] = randomNumbersList.get(i);
         }
-
         return answerNumbers;
     }
 }
