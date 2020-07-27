@@ -23,6 +23,10 @@ public class GameProcess {
             return "Wrong Input，Input again";
         }
         timesLimiter.increase();
-        return guessNumberGame.guess(guessNumbers);
+        String xAxB = guessNumberGame.guess(guessNumbers);
+        if (xAxB.equals("4A0B")){
+            return "Win";
+        }
+        return xAxB;
     }
 }
