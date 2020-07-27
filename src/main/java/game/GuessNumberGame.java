@@ -8,14 +8,14 @@ public class GuessNumberGame {
     public GuessNumberGame(INumberGenerator numberGenerator){
         this.answer = numberGenerator.generate();
     }
-// todo rename
+
     public String play(int[] answer, int[] guessNumbers) {
         if (!isValidNumbers(guessNumbers)){
             return "Wrong Input，Input again";
         }
         return guess(answer, guessNumbers);
     }
-// todo rename Right to correct
+
     public String guess(int[] answer, int[] guessNumbers){
         int countNumberInAnswerAndPositionCorrect = 0;
         int countNumberInAnswerButWrongPosition = 0;
@@ -23,11 +23,10 @@ public class GuessNumberGame {
             for (int j=0; j < answer.length; j++){
                 if (guessNumbers[i] == answer[j] && i==j){
                     countNumberInAnswerAndPositionCorrect ++;
-                    // todo continue
                     continue;
                 }
                 if(guessNumbers[i] == answer[j] && i!=j){
-                    countNumberInAnswerButWrongPosition++;
+                    countNumberInAnswerButWrongPosition ++;
                 }
             }
         }

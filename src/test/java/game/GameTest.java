@@ -11,13 +11,6 @@ import static org.mockito.Mockito.when;
 public class GameTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
-    /*
-    输入：
-    answer:[int]
-    guessNumbers:[int]
-    输出:
-    4A0B
-     */
     @Test
     void should_return_4A0B_when_guess_given_answer_1234_and_guess_numbers_1234() {
         //given
@@ -34,13 +27,6 @@ public class GameTest {
         assertEquals("4A0B", result);
     }
 
-    /*
-    输入：
-    answer:[int]
-    guessNumbers:[int]
-    输出:
-    0A0B
-     */
     @Test
     void should_return_0A0B_when_guess_given_answer_1234_and_guess_numbers_5678() {
         //given
@@ -55,13 +41,6 @@ public class GameTest {
         assertEquals("0A0B", result);
     }
 
-    /*
-    输入：
-    answer:[int]
-    guessNumbers:[int]
-    输出:
-    2A0B
-     */
     @Test
     void should_return_2A0B_when_guess_given_answer_1234_and_guess_numbers_1256() {
         //given
@@ -76,13 +55,6 @@ public class GameTest {
         assertEquals("2A0B", result);
     }
 
-    /*
-    输入：
-    answer:[int]
-    guessNumbers:[int]
-    输出:
-    2A2B
-     */
     @Test
     void should_return_2A2B_when_guess_given_answer_1234_and_guess_numbers_1243() {
         //given
@@ -97,13 +69,6 @@ public class GameTest {
         assertEquals("2A2B", result);
     }
 
-    /*
-    输入：
-    answer:[int]
-    guessNumbers:[int]
-    输出:
-    1A1B
-     */
     @Test
     void should_return_1A1B_when_guess_given_answer_1234_and_guess_numbers_1562() {
         //given
@@ -117,12 +82,6 @@ public class GameTest {
         //then
         assertEquals("1A1B", result);
     }
-
-    /*
-    input number valid
-    输入 [1,2,3,4]
-    输出 true
-     */
 
     @Test
     void should_return_true_when_check_is_valid_guess_numbers_given_1234() {
