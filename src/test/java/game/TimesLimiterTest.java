@@ -23,7 +23,7 @@ public class TimesLimiterTest {
         TimesLimiter timesLimiter = new TimesLimiter(6);
         timesLimiter.setTimesUsed(5);
         //when
-        Throwable throwable = Assertions.assertThrows(TimesOutException.class, ()->timesLimiter.increase());
+        Throwable throwable = Assertions.assertThrows(TimesOutException.class, timesLimiter::increase);
         //then
         Assertions.assertNotNull(throwable);
     }
