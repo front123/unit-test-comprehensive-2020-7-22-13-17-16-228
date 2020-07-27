@@ -11,7 +11,7 @@ public class GameProcessTest {
     private final InputValidator inputValidator = mock(InputValidator.class);
     private final GuessNumberGame guessNumberGame = mock(GuessNumberGame.class);
     @Test
-    void should_output_wrong_message_when_guess_given_1232() {
+    void should_output_wrong_message_when_play_given_guess_numbers_1232() {
         //given
         int[] answer = {1, 2, 3, 4};
         int[] guessNumbers = {1, 2, 3, 2};
