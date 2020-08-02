@@ -1,24 +1,26 @@
 package game;
 
+import java.util.Arrays;
+
 public class InputValidator {
 
     public boolean isValidNumbers(int[] guessNumbers) {
-        if (guessNumbers==null || guessNumbers.length != 4) {
-            return false;
-        }
-        for (int number: guessNumbers) {
-            if(number>9 || number<0) {
-                return false;
-            }
-        }
-        for (int i=0; i<guessNumbers.length; i++){
-            for(int j=0; j<guessNumbers.length; j++){
-                if(guessNumbers[i] == guessNumbers[j] && i!=j){
-                    return false;
-                }
-            }
-        }
-        return true;
+        return guessNumbers != null
+                && isLengthEqual4(guessNumbers)
+                && isInRange0To9(guessNumbers)
+                && !hasDuplicateNumber(guessNumbers);
     }
 
+    private boolean hasDuplicateNumber(int[] guessNumbers){
+        return Arrays.stream(guessNumbers).distinct().count() < guessNumbers.length;
+    }
+
+    private boolean isLengthEqual4(int[] guessNumbers){
+        return guessNumbers.length == 4;
+    }
+    private boolean isInRange0To9(int[] guessNumbers){
+        return Arrays.stream(guessNumbers)
+                .filter(number -> number>=0 && number<=9)
+                .count() == guessNumbers.length;
+    }
 }
