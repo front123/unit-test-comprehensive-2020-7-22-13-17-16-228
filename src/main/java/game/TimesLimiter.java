@@ -21,10 +21,6 @@ public class TimesLimiter {
         return this.timesUsed >= maxTimes;
     }
 
-    public int getTimesUsed() {
-        return timesUsed;
-    }
-
     public void setTimesUsed(int timesUsed) {
         this.timesUsed = timesUsed;
     }
