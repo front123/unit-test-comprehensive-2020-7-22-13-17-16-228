@@ -39,7 +39,7 @@ public class GameProcessTest {
         //when
         String result = gameProcess.play(guessNumbers);
         //then
-        assertEquals("Win", result);
+        assertEquals("4A0B", result);
     }
 
     @Test
