@@ -1,5 +1,8 @@
 package game;
 
+import java.util.Arrays;
+import java.util.stream.IntStream;
+
 public class GuessNumberGame {
 
     private int[] answer;
@@ -12,23 +15,20 @@ public class GuessNumberGame {
     }
 
     public String guess(int[] guessNumbers) {
-        int countNumberInAnswerAndPositionCorrect = 0;
-        int countNumberInAnswerButWrongPosition = 0;
-        for (int i = 0; i < guessNumbers.length; i++) {
-            for (int j = 0; j < answer.length; j++) {
-                if (guessNumbers[i] == answer[j] && i == j) {
-                    countNumberInAnswerAndPositionCorrect++;
-                    continue;
-                }
-                if (guessNumbers[i] == answer[j] && i != j) {
-                    countNumberInAnswerButWrongPosition++;
-                }
-            }
-        }
-
+        int countNumberInAnswerAndPositionCorrect = countNumberInAnswerAndPositionCorrect(guessNumbers);
+        int countNumberInAnswerButWrongPosition = countNumberInAnswer(guessNumbers) - countNumberInAnswerAndPositionCorrect;
         return String.format("%dA%dB", countNumberInAnswerAndPositionCorrect, countNumberInAnswerButWrongPosition);
     }
 
+    private int countNumberInAnswerAndPositionCorrect(int[] guessNumbers){
+        long count = IntStream.range(0, answer.length)
+                .mapToObj(i -> guessNumbers[i]==answer[i]).filter(isTrue -> isTrue).count();
+        return (int) count;
+    }
+    private int countNumberInAnswer(int[] guessNumbers){
+        long c2 = Arrays.stream(answer).filter(n1 -> Arrays.stream(guessNumbers).anyMatch(n2 -> n1==n2)).count();
+        return (int) c2;
+    }
 
     public int[] getAnswer() {
         return answer;
