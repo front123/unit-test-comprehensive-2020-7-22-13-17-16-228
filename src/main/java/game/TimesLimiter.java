@@ -9,8 +9,11 @@ public class TimesLimiter {
         this.timesUsed = 0;
     }
 
-    public int increase(){
+    public int increase() throws TimesOutException {
         this.timesUsed ++;
+        if (timesUsed >= maxTimes){
+            throw new TimesOutException();
+        }
         return timesUsed;
     }
 

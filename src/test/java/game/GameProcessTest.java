@@ -43,13 +43,13 @@ public class GameProcessTest {
     }
 
     @Test
-    void should_throw_times_out_exception_when_play_given_times_limiter_times_use_more_than_6() {
+    void should_throw_times_out_exception_when_play_given_times_limiter_times_use_more_than_6() throws TimesOutException {
         int[] answer = {1, 2, 3, 4};
         int[] guessNumbers = {1, 2, 3, 4};
         when(guessNumberGame.getAnswer()).thenReturn(answer);
         when(inputValidator.isValidNumbers(guessNumbers)).thenReturn(true);
         when(guessNumberGame.guess(guessNumbers)).thenReturn("4A0B");
-        when(timesLimiter.isTimesOut()).thenReturn(true);
+        when(timesLimiter.increase()).thenThrow(TimesOutException.class);
         GameProcess gameProcess = new GameProcess(guessNumberGame, inputValidator, timesLimiter);
 
         //when
